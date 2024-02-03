@@ -1,0 +1,25 @@
+
+$primary: rgba(232, 152, 160, 1);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+.text-primary2 {
+    color: rgb(152, 232, 192);
+}
+
+.bg-primary2 {
+    background-color: rgb(152, 232, 192);
+}
+
+.btn-primary2{
+    background-color: rgb(152, 232, 192);
+}
+
+.btn-primary2:hover{
+    background-color: rgb(174, 236, 205);
+}
+
+.btn-primary2:active{
+    background-color: rgb(174, 236, 205) !important;
+    border-color: rgb(174, 236, 205) !important;
+}
