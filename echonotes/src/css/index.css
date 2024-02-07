@@ -20,7 +20,36 @@ a:hover {
 
 .not-found{
   background-image: url("../../images/404tr.png");
+  background-size: contain;
+}
+
+.home-option{
+  width: 30%;
+  min-width: 350px;
+  background-blend-mode: lighten;
+  backdrop-filter: 150px;
+  filter: opacity(0.9);
+}
+
+.bg-home{
+  background-image: url("../../images/home_bg1.jpg");
+  background-size: cover;
+}
+
+#jarsBg{
+  background-image: url("../../images/jars_bg1.jpg");
+  background-size: cover;
+}
+
+.not-found, .bg-home, #jarsBg {  
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+}
+
+.shadow-lg-light{
+  box-shadow: 0 1rem 3rem rgba(255, 255, 255, 0.9) !important;
+}
+
+.margin-top-navbar{
+  margin-top: 80px;
 }

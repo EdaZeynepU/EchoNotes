@@ -1,5 +1,5 @@
 
-$primary: rgba(232, 152, 160, 1);
+$primary: rgb(237, 197, 201);
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
@@ -22,4 +22,8 @@ $primary: rgba(232, 152, 160, 1);
 .btn-primary2:active{
     background-color: rgb(174, 236, 205) !important;
     border-color: rgb(174, 236, 205) !important;
+}
+
+.bg-primary2-subtle{
+    background-color: rgb(243, 255, 249);
 }
