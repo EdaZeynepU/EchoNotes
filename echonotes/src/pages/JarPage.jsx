@@ -8,6 +8,7 @@ import Navbar from '../components/Navbar';
 
 const JarNotes = ({ note, index, JarNext, JarBefore, setJarContentDict, handleNoteChange }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+
   function handleDragStop(e) {
     const jarNextX = JarNext.location.x;
     const jarNextY = JarNext.location.y;
@@ -30,14 +31,14 @@ const JarNotes = ({ note, index, JarNext, JarBefore, setJarContentDict, handleNo
           setJarContentDict(prev=>({nextLst:prev["nextLst"],prevLst:{...prev["prevLst"],...selectedEntry},currentLst:prev["currentLst"]}));
           e.target.parentElement.parentElement.parentElement.parentElement.classList.add("d-none");
       }
-  }
+    }
 
   }
 
   return (
     <DraggableCore 
         key={index} 
-        onDrop={(e)=>{e.preventDefault(); console.log("ondrop"); }}
+        onDrop={(e)=>{e.preventDefault();}}
         onStop={handleDragStop}
 
     >
@@ -65,7 +66,6 @@ const JarNotes = ({ note, index, JarNext, JarBefore, setJarContentDict, handleNo
 
 const Jar = ({setJar,jar,jarNameDict,isOpen}) => {
     const divRef = useRef(null);
-
     useEffect(() => {
       function trackDivCoordinates() {
         if (divRef.current) {
@@ -80,11 +80,8 @@ const Jar = ({setJar,jar,jarNameDict,isOpen}) => {
     }, [isOpen]);
 
     return (
-    <div className='position-relative d-inline-block p-3 m-3' 
-          ref={divRef} 
-        >
+    <div className='position-relative d-inline-block p-3 m-3' ref={divRef}>
           <h4 className='text-center'>{jarNameDict[jar.key]}</h4>
-          {/* <button onClick={() => { setIsOpen(true) }} className='btn btn-primary position-absolute bottom-0 end-0 btn-lg'>Notları Aç</button> */}
           <img src="../images/jar_cute2.png" alt="jar" />
         </div>
     )
@@ -152,9 +149,10 @@ const JarPage = () => {
         setNotes(notes);
         setJarContentDict({prevLst:{},nextLst:{},currentLst:notes});
       } else {
-        setNotes({ "Bye": "Tschüss", "Night": "Nacht", "Hello": "Halo", "No":"Nein" });
-        
-        setJarContentDict({prevLst:{},nextLst:{},currentLst:{ "Bye": "Tschüss", "Night": "Nacht", "Hello": "Halo", "No":"Nein" }});
+        // setNotes({ "Bye": "Tschüss", "Night": "Nacht", "Hello": "Halo", "No":"Nein" });
+        // setJarContentDict({prevLst:{},nextLst:{},currentLst:{ "Bye": "Tschüss", "Night": "Nacht", "Hello": "Halo", "No":"Nein" }});
+        setNotes({});
+        setJarContentDict({prevLst:{},nextLst:{},currentLst:{}});
       }
       if (jarUrl=="1hours") {
         setJarBefore(prev => ({"location":prev.location,"key":"1hours"}));
@@ -180,7 +178,8 @@ const JarPage = () => {
 
   return (
     <div>
-      <div id='jarsBg' className='vw-100 vh-100 position-fixed top-0'><Navbar/></div>
+      <div className='vw-100 position-fixed top-0'><Navbar/></div>
+      <div id='jarsBg' className='vw-100 vh-100 position-fixed top-0 z-n1 x'> </div>
       
       <div className='container-fluid d-flex margin-top-navbar'>
         {isOpen && (
@@ -196,11 +195,9 @@ const JarPage = () => {
             <button onClick={() => { setIsOpen(true) }} className='btn btn-primary position-absolute bottom-0 end-0 btn-lg'>Notları Aç</button>
             <img src="../images/jar_cute2.png" alt="jar" />
           </div>
-          {/* <button className='bt btnprimary positionabsolute p-0'> */}
             <div className={`${isOpen ? "":"d-none"} align-self-end`}>
               <button onClick={saveChanges} className="rounded-circle btn p-0"><img className='rounded-circle' src="../../images/done.png" alt="done" /></button>
             </div>
-          {/* </button> */}
           <Jar setJar={setJarNext} jar={JarNext} jarNameDict={jarNameDict} isOpen={isOpen}/>
         </div>
 

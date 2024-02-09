@@ -27,9 +27,14 @@ a:hover {
   width: 30%;
   min-width: 350px;
   background-blend-mode: lighten;
-  backdrop-filter: 150px;
   filter: opacity(0.9);
 }
+
+.home-settings-options{
+  /* flex-basis: 250px; */
+  height: 130px;
+}
+
 
 .bg-home{
   background-image: url("../../images/home_bg1.jpg");
@@ -53,3 +58,13 @@ a:hover {
 .margin-top-navbar{
   margin-top: 80px;
 }
+
+.x{
+  filter: blur(4px);
+}
+
+
+/* Daha sonra dene */
+/* .vh-fill-available{
+  height: -webkit-fill-available;
+} */

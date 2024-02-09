@@ -7,7 +7,7 @@ const Navbar = () => {
       className="navbar navbar-expand-sm navbar-light bg-light"
     >
       <div className="container">
-        <a className="navbar-brand" href="#">Echo Notes</a>
+        <Link className="navbar-brand" to="/">Echo Notes</Link>
         <button
           className="navbar-toggler d-lg-none"
           type="button"
@@ -20,11 +20,14 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="collapsibleNavId">
-          <ul className="navbar-nav me-auto mt-2 mt-lg-0">
+          <ul className="navbar-nav me-auto mt-2 mt-lg-2 gap-2">
             <li className="nav-item">
               <Link to="/" className="nav-link"
-              >Anasayfa
-                <span className="visually-hidden">(current)</span></Link>
+              >Anasayfa</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/edit_note" className="nav-link"
+              >Not ekle ve sil</Link>
             </li>
             <li className="nav-item dropdown">
               <a
